@@ -4,7 +4,7 @@ using SFML.Window;
 
 class Player
 {
-    public RectangleShape rect;
+    public static RectangleShape rect;
     private const float moveForce = 90000f;
     private const float mass = 20f;
     private const float gravity = 1000f;
