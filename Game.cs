@@ -4,10 +4,10 @@ using SFML.Window;
 
 class Game
 {
-    private RenderWindow window;
+    public static RenderWindow window;
     public static float deltaTime;
     public const float gravity = 0.06f;  
-    private static Vector2f playerSize = new Vector2f(30, 30);
+    public static Vector2f playerSize = new Vector2f(30, 30);
     private Player player;
 
     public void Run()
