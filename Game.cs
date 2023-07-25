@@ -15,7 +15,7 @@ class Game
 
     public void Run()
     {
-        window = new RenderWindow(new VideoMode(600, 600), "the cake piece is real!!!");
+        window = new RenderWindow(new VideoMode(600, 600), "portal cheap");
         window.SetFramerateLimit(60);
 
         Clock deltaTimeClock = new Clock();
