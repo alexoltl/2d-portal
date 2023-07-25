@@ -21,8 +21,8 @@ class Game
         Clock deltaTimeClock = new Clock();
 
         player = new Player(new Vector2f(20, 400), playerSize, 0x888888ff);
-        bluePortal = new Portal(new Vector2f(50, 150), portalSize, PortalColor.Blue);
-        orangePortal = new Portal(new Vector2f(90, 150), portalSize, PortalColor.Orange);
+        bluePortal = new Portal(new Vector2f(50, 300), portalSize, PortalColor.Blue);
+        orangePortal = new Portal(new Vector2f(550, 300), portalSize, PortalColor.Orange);
 
         while (window.IsOpen)
         {

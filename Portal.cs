@@ -16,7 +16,7 @@ class Portal
 
             if (portalType == PortalColor.Orange)
             {
-                rect.FillColor = new Color(0xFFA500);
+                rect.FillColor = new Color(0xffa500ff);
             }
             else if (portalType == PortalColor.Blue)
             {
