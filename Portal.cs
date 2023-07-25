@@ -51,14 +51,14 @@ class Portal
         {
             if (portalType == PortalColor.Orange)
             {
-                Vector2f newPosition = Game.bluePortal.rect.Position;
-                newPosition.X += Player.rect.Size.X + Game.bluePortal.rect.Size.X;
+                Vector2f newPosition = Map.bluePortal.rect.Position;
+                newPosition.X += Player.rect.Size.X + Map.bluePortal.rect.Size.X;
                 Player.rect.Position = newPosition;
             }
             else if (portalType == PortalColor.Blue)
             {
-                Vector2f newPosition = Game.orangePortal.rect.Position;
-                newPosition.X += Player.rect.Size.X + Game.orangePortal.rect.Size.X;
+                Vector2f newPosition = Map.orangePortal.rect.Position;
+                newPosition.X += Player.rect.Size.X + Map.orangePortal.rect.Size.X;
                 Player.rect.Position = newPosition;
             }
         }
@@ -66,14 +66,14 @@ class Portal
         {
             if (portalType == PortalColor.Orange)
             {
-                Vector2f newPosition = Game.bluePortal.rect.Position;
-                newPosition.X -= Player.rect.Size.X + Game.bluePortal.rect.Size.X;
+                Vector2f newPosition = Map.bluePortal.rect.Position;
+                newPosition.X -= Player.rect.Size.X + Map.bluePortal.rect.Size.X;
                 Player.rect.Position = newPosition;
             }
             else if (portalType == PortalColor.Blue)
             {
-                Vector2f newPosition = Game.orangePortal.rect.Position;
-                newPosition.X -= Player.rect.Size.X + Game.orangePortal.rect.Size.X;
+                Vector2f newPosition = Map.orangePortal.rect.Position;
+                newPosition.X -= Player.rect.Size.X + Map.orangePortal.rect.Size.X;
                 Player.rect.Position = newPosition;
             }
         }

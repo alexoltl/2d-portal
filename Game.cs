@@ -8,10 +8,7 @@ class Game
     public static float deltaTime;
     public const float gravity = 0.06f;  
     public static Vector2f playerSize = new Vector2f(30, 30);
-    public static Vector2f portalSize = new Vector2f(10, 70);
-    public static Portal bluePortal;
-    public static Portal orangePortal;
-    private Player player;
+    private static Player player;
 
     public void Run()
     {
@@ -20,9 +17,10 @@ class Game
 
         Clock deltaTimeClock = new Clock();
 
+        Map map = new Map();
+        int tileSize = (int)Game.window.Size.X / Map.mapDimensions;
+
         player = new Player(new Vector2f(20, 400), playerSize, 0x888888ff);
-        bluePortal = new Portal(new Vector2f(50, 300), portalSize, PortalColor.Blue);
-        orangePortal = new Portal(new Vector2f(550, 300), portalSize, PortalColor.Orange);
 
         while (window.IsOpen)
         {
@@ -34,13 +32,20 @@ class Game
             window.Closed += (sender, e) => window.Close();
             window.Clear(Color.Black);
 
+            Map.Create();
+
+            for (int i = 0; i < Map.tileList.Count; i++)
+            {
+                window.Draw(Map.tileList[i]);
+            }
+
             player.Movement();
             window.Draw(Player.rect);
 
-            bluePortal.Collision();
-            orangePortal.Collision();
-            window.Draw(bluePortal.rect);
-            window.Draw(orangePortal.rect);
+            Map.bluePortal.Collision();
+            Map.orangePortal.Collision();
+            window.Draw(Map.bluePortal.rect);
+            window.Draw(Map.orangePortal.rect);
             
             window.Display();
         }
