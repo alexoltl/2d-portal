@@ -6,18 +6,26 @@ class Map
 {
     public const int mapDimensions = 20;
     public static int[,] tileMap;
-    private static int tileSize;
+    public static int tileSize;
     public static List<Sprite> tileList = new List<Sprite>();
     public static Portal bluePortal;
     public static Portal orangePortal;
-    private static Texture groundTexture = new Texture("gorund.png");
+    private static Texture groundTexture;
+    private static Sprite newTile;
 
     public static void Create()
     {
         tileMap = new int[mapDimensions, mapDimensions];
         tileSize = (int)Game.window.Size.X / mapDimensions;
 
-        using (StreamReader streamReader = new StreamReader("map.txt"))
+        groundTexture = new Texture("gorund.png");
+
+        LoadMap();
+        RenderList();
+    }
+    private static void LoadMap()
+    {
+        using (StreamReader streamReader = new StreamReader("map0.txt"))
         {
             for (int y = 0; y < mapDimensions; y++)
             {
@@ -34,9 +42,7 @@ class Map
             }
         }
 
-        RenderList();
     }
-
     public static void RenderList()
     {
         for (int x = 0; x < mapDimensions; x++)
@@ -49,7 +55,7 @@ class Map
 
                 if (currentTile == 1)
                 {
-                    Sprite newTile = new Sprite(groundTexture);
+                    newTile = new Sprite(groundTexture);
                     newTile.Position = new Vector2f(xPos, yPos);
                     tileList.Add(newTile);
                 }

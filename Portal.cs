@@ -62,7 +62,7 @@ class Portal
                 Player.rect.Position = newPosition;
             }
         }
-        else
+        else if (playerCenter.X > portalCenter.X)
         {
             if (portalType == PortalColor.Orange)
             {
@@ -74,6 +74,36 @@ class Portal
             {
                 Vector2f newPosition = Map.orangePortal.rect.Position;
                 newPosition.X -= Player.rect.Size.X + Map.orangePortal.rect.Size.X;
+                Player.rect.Position = newPosition;
+            }
+        }
+        if (playerCenter.Y < portalCenter.Y)
+        {
+            if (portalType == PortalColor.Orange)
+            {
+                Vector2f newPosition = Map.bluePortal.rect.Position;
+                newPosition.Y += Player.rect.Size.Y + Map.bluePortal.rect.Size.Y;
+                Player.rect.Position = newPosition;
+            }
+            else if (portalType == PortalColor.Blue)
+            {
+                Vector2f newPosition = Map.orangePortal.rect.Position;
+                newPosition.Y += Player.rect.Size.Y + Map.orangePortal.rect.Size.Y;
+                Player.rect.Position = newPosition;
+            }
+        }
+        else if (playerCenter.Y > portalCenter.Y)
+        {
+            if (portalType == PortalColor.Orange)
+            {
+                Vector2f newPosition = Map.bluePortal.rect.Position;
+                newPosition.Y -= Player.rect.Size.Y + Map.bluePortal.rect.Size.Y;
+                Player.rect.Position = newPosition;
+            }
+            else if (portalType == PortalColor.Blue)
+            {
+                Vector2f newPosition = Map.orangePortal.rect.Position;
+                newPosition.Y -= Player.rect.Size.Y + Map.orangePortal.rect.Size.Y;
                 Player.rect.Position = newPosition;
             }
         }

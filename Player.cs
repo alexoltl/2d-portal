@@ -36,6 +36,7 @@ class Player
 
         velocity.X -= friction * velocity.X;
         if (Math.Abs(velocity.X) < 0.1f) velocity.X = 0f;
+        if (Math.Abs(velocity.Y) < 0.1f) velocity.Y = 0f;
 
         velocity.Y += gravity * Game.deltaTime;
 
