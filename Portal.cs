@@ -38,77 +38,77 @@ class Portal
     }
 
     public void Collision()
-{
-    FloatRect portalBounds = rect.GetGlobalBounds();
-    FloatRect playerBounds = Player.rect.GetGlobalBounds();
-
-    if (portalBounds.Intersects(playerBounds))
     {
-        Vector2f portalCenter = new Vector2f(portalBounds.Left + portalBounds.Width / 2f, portalBounds.Top + portalBounds.Height / 2f);
-        Vector2f playerCenter = new Vector2f(playerBounds.Left + playerBounds.Width / 2f, playerBounds.Top + playerBounds.Height / 2f);
+        FloatRect portalBounds = rect.GetGlobalBounds();
+        FloatRect playerBounds = Player.rect.GetGlobalBounds();
 
-        if (playerCenter.X < portalCenter.X)
+        if (portalBounds.Intersects(playerBounds))
         {
-            if (portalType == PortalColor.Orange)
+            Vector2f portalCenter = new Vector2f(portalBounds.Left + portalBounds.Width / 2f, portalBounds.Top + portalBounds.Height / 2f);
+            Vector2f playerCenter = new Vector2f(playerBounds.Left + playerBounds.Width / 2f, playerBounds.Top + playerBounds.Height / 2f);
+
+            if (playerCenter.X < portalCenter.X)
             {
-                Vector2f newPosition = Map.bluePortal.rect.Position;
-                newPosition.X += Player.rect.Size.X + Map.bluePortal.rect.Size.X;
-                Player.rect.Position = newPosition;
+                if (portalType == PortalColor.Orange)
+                {
+                    Vector2f newPosition = Map.bluePortal.rect.Position;
+                    newPosition.X += Player.rect.Size.X + Map.bluePortal.rect.Size.X;
+                    Player.rect.Position = newPosition;
+                }
+                else if (portalType == PortalColor.Blue)
+                {
+                    Vector2f newPosition = Map.orangePortal.rect.Position;
+                    newPosition.X += Player.rect.Size.X + Map.orangePortal.rect.Size.X;
+                    Player.rect.Position = newPosition;
+                }
             }
-            else if (portalType == PortalColor.Blue)
+            else if (playerCenter.X > portalCenter.X)
             {
-                Vector2f newPosition = Map.orangePortal.rect.Position;
-                newPosition.X += Player.rect.Size.X + Map.orangePortal.rect.Size.X;
-                Player.rect.Position = newPosition;
+                if (portalType == PortalColor.Orange)
+                {
+                    Vector2f newPosition = Map.bluePortal.rect.Position;
+                    newPosition.X -= Player.rect.Size.X + Map.bluePortal.rect.Size.X;
+                    Player.rect.Position = newPosition;
+                }
+                else if (portalType == PortalColor.Blue)
+                {
+                    Vector2f newPosition = Map.orangePortal.rect.Position;
+                    newPosition.X -= Player.rect.Size.X + Map.orangePortal.rect.Size.X;
+                    Player.rect.Position = newPosition;
+                }
             }
-        }
-        else if (playerCenter.X > portalCenter.X)
-        {
-            if (portalType == PortalColor.Orange)
+            if (playerCenter.Y < portalCenter.Y)
             {
-                Vector2f newPosition = Map.bluePortal.rect.Position;
-                newPosition.X -= Player.rect.Size.X + Map.bluePortal.rect.Size.X;
-                Player.rect.Position = newPosition;
+                if (portalType == PortalColor.Orange)
+                {
+                    Vector2f newPosition = Map.bluePortal.rect.Position;
+                    newPosition.Y += Player.rect.Size.Y + Map.bluePortal.rect.Size.Y;
+                    Player.rect.Position = newPosition;
+                }
+                else if (portalType == PortalColor.Blue)
+                {
+                    Vector2f newPosition = Map.orangePortal.rect.Position;
+                    newPosition.Y += Player.rect.Size.Y + Map.orangePortal.rect.Size.Y;
+                    Player.rect.Position = newPosition;
+                }
             }
-            else if (portalType == PortalColor.Blue)
+            else if (playerCenter.Y > portalCenter.Y)
             {
-                Vector2f newPosition = Map.orangePortal.rect.Position;
-                newPosition.X -= Player.rect.Size.X + Map.orangePortal.rect.Size.X;
-                Player.rect.Position = newPosition;
-            }
-        }
-        if (playerCenter.Y < portalCenter.Y)
-        {
-            if (portalType == PortalColor.Orange)
-            {
-                Vector2f newPosition = Map.bluePortal.rect.Position;
-                newPosition.Y += Player.rect.Size.Y + Map.bluePortal.rect.Size.Y;
-                Player.rect.Position = newPosition;
-            }
-            else if (portalType == PortalColor.Blue)
-            {
-                Vector2f newPosition = Map.orangePortal.rect.Position;
-                newPosition.Y += Player.rect.Size.Y + Map.orangePortal.rect.Size.Y;
-                Player.rect.Position = newPosition;
-            }
-        }
-        else if (playerCenter.Y > portalCenter.Y)
-        {
-            if (portalType == PortalColor.Orange)
-            {
-                Vector2f newPosition = Map.bluePortal.rect.Position;
-                newPosition.Y -= Player.rect.Size.Y + Map.bluePortal.rect.Size.Y;
-                Player.rect.Position = newPosition;
-            }
-            else if (portalType == PortalColor.Blue)
-            {
-                Vector2f newPosition = Map.orangePortal.rect.Position;
-                newPosition.Y -= Player.rect.Size.Y + Map.orangePortal.rect.Size.Y;
-                Player.rect.Position = newPosition;
+                if (portalType == PortalColor.Orange)
+                {
+                    Vector2f newPosition = Map.bluePortal.rect.Position;
+                    newPosition.Y -= Player.rect.Size.Y + Map.bluePortal.rect.Size.Y;
+                    Player.rect.Position = newPosition;
+                }
+                else if (portalType == PortalColor.Blue)
+                {
+                    Vector2f newPosition = Map.orangePortal.rect.Position;
+                    newPosition.Y -= Player.rect.Size.Y + Map.orangePortal.rect.Size.Y;
+                    Player.rect.Position = newPosition;
+                }
             }
         }
     }
-}
 
 }
 
