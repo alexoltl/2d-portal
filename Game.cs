@@ -12,13 +12,13 @@ class Game
 
     public void Run()
     {
-        window = new RenderWindow(new VideoMode(600, 600), "portal cheap");
+        window = new RenderWindow(new VideoMode(600, 600), "portal cheap", Styles.Close);
         window.SetFramerateLimit(60);
 
         Clock deltaTimeClock = new Clock();
 
         Map map = new Map();
-        int tileSize = (int)Game.window.Size.X / Map.mapDimensions;
+        int tileSize = (int)window.Size.X / Map.mapDimensions;
 
         player = new Player(new Vector2f(20, 400), playerSize, 0x888888ff);
 
@@ -38,6 +38,8 @@ class Game
             {
                 window.Draw(Map.tileList[i]);
             }
+
+            Map.tileList.Clear();
 
             player.Movement();
             window.Draw(Player.rect);

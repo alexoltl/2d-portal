@@ -25,7 +25,7 @@ class Map
     }
     private static void LoadMap()
     {
-        using (StreamReader streamReader = new StreamReader("map0.txt"))
+        using (StreamReader streamReader = new StreamReader("map1.txt"))
         {
             for (int y = 0; y < mapDimensions; y++)
             {
